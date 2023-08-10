@@ -4,11 +4,11 @@ jobs:
     docker:
       # specify the version you desire here
       - image: cimg/node:20.5.1
-    working_directory: ~/teamspeak-server
+    working_directory: /home/circleci/project/
     steps:
       - run:
           name: Checkout Repo
-          command: git clone https://github.com/csongorhg/teamspeak-server.git && cd teamspeak-server
+          command: git clone https://github.com/csongorhg/teamspeak-server.git
       - run:
           name: Install AWS CLI and Deploy Cloudformation
           command: |
@@ -16,4 +16,4 @@ jobs:
             sudo apt-get install python3-dev
             curl -O https://bootstrap.pypa.io/pip/3.6/get-pip.py && sudo python get-pip.py
             sudo pip install -q awscli --upgrade
-      - run: ./deploy.sh
+      - run: ./teamspeak-server/deploy.sh
