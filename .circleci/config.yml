@@ -12,7 +12,8 @@ jobs:
       - run:
           name: Install AWS CLI and Deploy Cloudformation
           command: |
-            sudo apt-get update && sudo apt-get install -qq -y python-pip libpython-dev
+            sudo apt-get update && sudo apt-get install -qq -y
+            sudo apt-get install python3.6
             curl -O https://bootstrap.pypa.io/3.6/get-pip.py && sudo python get-pip.py
             sudo pip install -q awscli --upgrade
       - run: ./deploy.sh
