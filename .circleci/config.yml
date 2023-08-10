@@ -6,7 +6,9 @@ jobs:
       - image: cimg/node:20.5.1
     working_directory: ~/teamspeak-server
     steps:
-      - checkout
+      - run:
+          name: Checkout Repo
+          command: git clone https://github.com/csongorhg/teamspeak-server.git && cd teamspeak-server
       - run:
           name: Install AWS CLI and Deploy Cloudformation
           command: |
